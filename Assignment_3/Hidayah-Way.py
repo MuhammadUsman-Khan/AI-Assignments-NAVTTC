@@ -38,11 +38,11 @@ def quran():
             st.markdown("---")
             st.header(translation["name"])
             st.markdown("---")
-            st.text("Surah Number :")
-            st.text(translation["number"])
+            st.caption("Surah Number :")
+            st.caption(translation["number"])
             st.markdown("---")
-            st.text("Total Ayahs :")
-            st.text(translation["numberOfAyahs"])
+            st.caption("Total Ayahs :")
+            st.caption(translation["numberOfAyahs"])
             st.markdown("---")
             translations = translation["ayahs"]
             for translation_linewise in translations:
@@ -56,11 +56,11 @@ def quran():
             st.markdown("---")
             st.header(translation["name"])
             st.markdown("---")
-            st.text("Surah Number :")
-            st.text(translation["number"])
+            st.caption("Surah Number :")
+            st.caption(translation["number"])
             st.markdown("---")
-            st.text("Total Ayahs :")
-            st.text(translation["numberOfAyahs"])
+            st.caption("Total Ayahs :")
+            st.caption(translation["numberOfAyahs"])
             st.markdown("---")
             quran_audio = audios["ayahs"]
             for audio in quran_audio:
