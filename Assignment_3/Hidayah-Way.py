@@ -1,6 +1,5 @@
 import streamlit as st 
 import requests
-from playsound import playsound
 
 def quran():
     response = requests.get('https://api.alquran.cloud/v1/surah')
