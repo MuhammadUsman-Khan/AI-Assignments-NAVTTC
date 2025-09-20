@@ -11,7 +11,7 @@ def quran():
     selected_surah = st.selectbox("Select Surah",surahs)
     index = surahs.index(selected_surah)
     
-    tab_arabic, tab_translation, tab_audio = st.tabs(["Arabic", "Translation", "Audio"])
+    tab_arabictranslation, tab_arabic, tab_translation,  tab_audio = st.tabs([ "Arabic & Translation" ,"Arabic", "Translation", "Audio"])
 
     with tab_arabic:
         arabic_response = requests.get(f'https://api.alquran.cloud/v1/surah/{index+1}')
@@ -36,7 +36,7 @@ def quran():
         if translational_response.status_code == 200:
             translation = translational_response.json()["data"]
             st.markdown("---")
-            st.header(translation["name"])
+            st.subheader(translation["name"])
             st.markdown("---")
             st.caption("Surah Number :")
             st.caption(translation["number"])
@@ -49,12 +49,29 @@ def quran():
                 st.subheader(translation_linewise["text"])
                 st.caption(translation_linewise["numberInSurah"])
 
+    with tab_arabictranslation:
+        st.markdown("---")
+        st.subheader(translation["name"])
+        st.markdown("---")
+        st.caption("Surah Number :")
+        st.caption(translation["number"])
+        st.markdown("---")
+        st.caption("Total Ayahs :")
+        st.caption(translation["numberOfAyahs"])
+        st.markdown("---")
+        translations = translation["ayahs"]
+        for ayah, translation_linewise in zip(ayahs, translations):              
+            st.subheader(ayah["text"])
+            st.caption(translation_linewise["text"])
+            st.caption(translation_linewise["numberInSurah"])
+        
+
     with tab_audio:
         audio_response = requests.get(f'https://api.alquran.cloud/v1/surah/{index+1}/ar.alafasy')
         if audio_response.status_code == 200:
             audios = audio_response.json()["data"]
             st.markdown("---")
-            st.header(translation["name"])
+            st.subheader(translation["name"])
             st.markdown("---")
             st.caption("Surah Number :")
             st.caption(translation["number"])
