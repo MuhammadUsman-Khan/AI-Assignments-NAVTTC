@@ -1,1 +1,4 @@
-
+pandas==2.3.2
+pyautogui==0.9.54
+pywhatkit==5.4
+streamlit==1.43.2
