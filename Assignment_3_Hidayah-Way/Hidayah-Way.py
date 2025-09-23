@@ -147,6 +147,20 @@ def prayers_time():
 def main():
     st.set_page_config(page_title="Hidayah-Way", layout='centered')
 
+    st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+
+    html, body, [class*="css"]  {
+        font-family: 'Amiri', serif;
+        
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
     st.title("Hidayah-Way")
     st.subheader("Your path to Quran, Sunnah & Salah times.")
 
